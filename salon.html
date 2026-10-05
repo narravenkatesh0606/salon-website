@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="salon.js"></script>
+</head>
+<body class="bg-light">
+
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-warning sticky-lg-top">
+        <div class="container">
+            <a href="#" class="navbar-brand text-white fw-bold fs-2">Salon World</a>
+            <button class="navbar-toggler" type="button" data-bs-target="#navbarMenu" data-bs-toggle="collapse"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#services" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#servicedetails" class="nav-link">Services Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#stylists" class="nav-link">Stylists</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pricing" class="nav-link">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#gallery" class="nav-link">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#offers" class="nav-link">Offers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#testimonials" class="nav-link">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </li>
+                    <div class="d-flex justify-content-end gap-3">
+                    <button class="btn btn-danger px-3 py-2" data-bs-target="#user" data-bs-toggle="modal">Login</button>
+                    <button class="btn btn-success px-3 py-2" data-bs-target="#admin" data-bs-toggle="modal">Admin</button>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container">
+        <div class="modal" id="user">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="text-dark">User Login</h4>
+                        <button class="btn btn-danger btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <dl>
+                            <dt>User Mail</dt>
+                            <dd><input type="email" class="form-control" placeholder="Enter your Email"></dd>
+                            <dt>Password</dt>
+                            <dd><input type="password" class="form-control" placeholder="Enter your password"></dd>
+                        </dl>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger px-3 py-2" onclick="login('user')">Login</button>
+                        <button class="btn btn-success px-3 py-2" onclick="register('user')">Register</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="admin">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="text-dark">Admin Login</h4>
+                        <button class="btn btn-danger btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <dl>
+                            <dt>Admin Mail</dt>
+                            <dd><input type="email" class="form-control" placeholder="Enter your Email"></dd>
+                            <dt>Password</dt>
+                            <dd><input type="password" class="form-control" placeholder="Enter your password"></dd>
+                        </dl>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success px-3 py-2" onclick="login('admin')">Login</button>
+                        <button class="btn btn-success px-3 py-2" onclick="register('admin')">Register</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="container-fluid">
+        <div class="carousel slide" id="home" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="2000">
+                    <img src="salon-3.jpg" class="d-block w-100" height="400">
+                    <div class="carousel-caption">
+                        <h2 class="fw-bold">Harsha Salon Shop</h2>
+                    <p class="fw-bold">Looking for a fresh new look?</p>
+                    <button class="btn btn-primary px-3 py-2">Learn more</button>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="salon-1.jpg" class="d-block w-100" height="400">
+                    <div class="carousel-caption">
+                        <h2 class="fw-bold">Harsha Salon Shop</h2>
+                    <p class="fw-bold">Looking for a fresh new look?</p>
+                    <button class="btn btn-primary px-3 py-2">Learn more</button>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="salon-2.jpeg" class="d-block w-100" height="400">
+                    <div class="carousel-caption">
+                        <h2 class="fw-bold">Harsha Salon Shop</h2>
+                    <p class="fw-bold">Looking for a fresh new look?</p>
+                    <button class="btn btn-primary px-3 py-2">Learn more</button>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" data-bs-target="#home"><span class="carousel-control-prev-icon"></span></button>
+            <button class="carousel-control-next" data-bs-target="#home"><span class="carousel-control-next-icon"></span></button>
+            <div class="carousel-indicators">
+                <button class="active" data-bs-target="#home" data-bs-slide-to="0"></button>
+                <button data-bs-target="#home" data-bs-slide-to="1"></button>
+                <button data-bs-target="#home" data-bs-slide-to="2"></button>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="text-dark fw-bold">Salon Features</h2>
+            <p class="text-dark fw-bold">Style. Beauty. Confidence.</p>
+        </div>
+
+        <div class="row g-3">
+
+            <div class="col-lg-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <i class="bi bi-scissors display-4 text-success"></i>
+                        <h4>Staff/Stylists</h4>
+                        <p class="text-secondary">List of staff and stylists</p>
+                        <button class="btn btn-success px-3 py-2" data-bs-target="#staff" data-bs-toggle="modal">Manage staff</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <i class="bi bi-calendar-check display-4 text-warning"></i>
+                        <h4>Appointment Booking</h4>
+                        <p class="text-secondary">Manage customer booking</p>
+                        <button class="btn btn-warning px-3 py-2" data-bs-target="#booking" data-bs-toggle="modal">Manage booking</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <i class="bi bi-clock display-4 text-danger"></i>
+                        <h4>Time Slot</h4>
+                        <p class="text-secondary">Salon Availability</p>
+                        <button class="btn btn-danger px-3 py-2" data-bs-target="#timeSlot" data-bs-toggle="modal">Manage customers</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <i class="bi bi-star display-4 text-warning"></i>
+                        <h4>Reviews</h4>
+                        <p class="text-secondary">view and manage customer reviews</p>
+                        <button class="btn btn-warning px-3 py-2" data-bs-target="#reviews" data-bs-toggle="modal">Manage Reviews</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <i class="bi bi-tag-fill display-4 text-success"></i>
+                        <h4>Offers</h4>
+                        <p class="text-secondary">Create and manage travel offers</p>
+                        <button class="btn btn-success px-3 py-2" data-bs-target="#offer" data-bs-toggle="modal">Manage Offers</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <i class="bi bi-person display-4 text-primary"></i>
+                        <h4>Membership</h4>
+                        <p class="text-secondary">Add and manage customers Membership</p>
+                        <button class="btn btn-primary px-3 py-2" data-bs-target="#membership" data-bs-toggle="modal">Manage Gallery</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="container">
+
+
+        <div class="modal" id="staff">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Add Staff/Stylists</h3>
+                        <button class="btn btn-danger btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                            <dl>
+                                <dt>Stylist Name</dt>
+                                <dd><input type="text" class="form-control" placeholder="Enter stylist Name"></dd>
+                                <dt>Services</dt>
+                                <dd>
+                                    <select class="form-select">
+                                        <option selected>Select Service</option>
+                                        <option>Haircut</option>
+                                        <option>Hair Styling</option>
+                                        <option>Hair Coloring</option>
+                                        <option>Hair Spa</option>
+                                        <option>Facial</option>
+                                        <option>Manicure</option>
+                                        <option>Pedicure</option>
+                                        <option>Makeup</option>
+                                        <option>Beard Styling</option>
+                                        <option>Bridal Makeup</option>
+                                    </select>
+                                </dd>
+                                <dt>Experience</dt>
+                                <dd><input type="text" class="form-control" placeholder="Enter experience"></dd>
+                                <dt>Phone Number</dt>
+                                <dd><input type="tel" class="form-control" placeholder="Enter phone number"></dd>
+                                <dt>Available Time</dt>
+                                <dd><input type="time" class="form-control" placeholder="Enter available time"></dd>
+                            </dl>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary px-3 py-2" onclick="addStaff()">Add Stylist</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="booking">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Booking your slot</h3>
+                        <button class="btn btn-danger btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <dl>
+                            <dt>customer Name</dt>
+                            <dd><input type="text" class="form-control" placeholder="Enter your name"></dd>
+                            <dt>Email</dt>
+                            <dd><input type="email" class="form-control" placeholder="Enter your email"></dd>
+                            <dt>Phone Number</dt>
+                            <dd><input type="number" class="form-control" placeholder="Enter your number"></dd>
+                            <dt>Appointment Date</dt>
+                            <dd><input type="date" class="form-control" placeholder="Enter date"></dd>
+                            <dt>Appointment Time</dt>
+                            <dd><input type="time" class="form-control" placeholder="enter time"></dd>
+                        </dl>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-warning px-3 py-2" onclick="addBooking()">Add booking</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal" id="timeSlot">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Booking your slot</h3>
+                        <button class="btn btn-danger btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <dl>
+                            <dt>Date</dt>
+                            <dd><input type="date" class="form-control"></dd>
+                            <dt>Select Service</dt>
+                            <dd>
+                                <select class="form-select">
+                                    <option selected>Select Service</option>
+                                    <option>Haircut</option>
+                                    <option>Hair Styling</option>
+                                    <option>Hair Coloring</option>
+                                    <option>Hair Spa</option>
+                                    <option>Facial</option>
+                                    <option>Manicure</option>
+                                    <option>Pedicure</option>
+                                    <option>Makeup</option>
+                                    <option>Beard Styling</option>
+                                    <option>Bridal Makeup</option>
+                                </select>
+                            </dd>
+                            <dt>Select Stylist</dt>
+                            <dd><input type="text" class="form-control" placeholder="Enter stylist"></dd>
+                            <dt>Appointment Time</dt>
+                            <dd><input type="time" class="form-control" placeholder="enter time"></dd>
+                        </dl>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-warning px-3 py-2" onclick="checkAvailability()">check Availability</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal" id="reviews">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Customers Reviews</h3>
+                        <button class="btn btn-danger btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card mb-3">
+                            <p>Rajesh</p>
+                            <p class="text-warning">★★★★★</p>
+                            <p>excellent service experience.</p>
+                        </div>
+                        <div class="card mb-3">
+                            <p>Harsha</p>
+                            <p class="text-warning">★★★★☆</p>
+                            <p>Good infrastructure and service support.</p>
+                        </div>
+                        <div class="card mb-3">
+                            <p>Ramu</p>
+                            <p class="text-warning">★★★☆☆</p>
+                            <p>The shop is clean with excellent work</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="offer">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Add special Offer</h3>
+                        <button class="btn btn-danger btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <dl>
+                            <dt>Offer Name</dt>
+                            <dd><input type="text" class="form-control" placeholder="Enter offer name"></dd>
+                            <dt>Select Service</dt>
+                            <dd>
+                                <select class="form-select">
+                                    <option selected>Select Service</option>
+                                    <option>Haircut</option>
+                                    <option>Hair Styling</option>
+                                    <option>Hair Coloring</option>
+                                    <option>Hair Spa</option>
+                                    <option>Facial</option>
+                                    <option>Manicure</option>
+                                    <option>Pedicure</option>
+                                    <option>Makeup</option>
+                                    <option>Beard Styling</option>
+                                    <option>Bridal Makeup</option>
+                                </select>
+                            </dd>
+                            <dt>Discount</dt>
+                            <dd><input type="number" class="form-control" placeholder="Enter discount percentage"></dd>
+                            <dt>Valid Until</dt>
+                            <dd><input type="date" class="form-control" placeholder="dd-mm-yyyy"></dd>
+                        </dl>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success px-3 py-2" onclick="addOffer()">Add Offer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal" id="membership">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Membership</h3>
+                        <button class="btn btn-danger btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <dl>
+                            <dt>customer Name</dt>
+                            <dd><input type="text" class="form-control" placeholder="Enter your name"></dd>
+                            <dt>Membership Plan</dt>
+                            <dd><input type="tel" class="form-control" placeholder="Enter plan in months"></dd>
+                            <dt>Phone Number</dt>
+                            <dd><input type="number" class="form-control" placeholder="Enter your number"></dd>
+                            <dt>start Date</dt>
+                            <dd><input type="date" class="form-control" placeholder="Enter date"></dd>
+                            <dt>duration</dt>
+                            <dd><input type="number" class="form-control" placeholder="enter duration in days"></dd>
+                            <dt>Price</dt>
+                            <dd><input type="number" class="form-control" placeholder="enter price"></dd>
+                        </dl>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-warning px-3 py-2" onclick="addMembership()">Add Membership</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="container py-5">
+    <div class="text-center">
+        <h2 class="fw-bold">About Us</h2>
+        <p class="text-secondary">
+            Welcome to Harsha Salon Shop. We provide professional
+            beauty and grooming services for men and women.
+        </p>
+    </div>
+</section>
+
+
+<section id="services" class="container py-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">Our Services</h2>
+        <p class="text-secondary">Explore our salon services.</p>
+    </div>
+
+    <div class="row g-3">
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card text-center h-100 shadow-sm">
+                <div class="card-body">
+                    <i class="bi bi-scissors display-5 text-success"></i>
+                    <h5>Haircut</h5>
+                    <p>Professional haircut services.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card text-center h-100 shadow-sm">
+                <div class="card-body">
+                    <i class="bi bi-stars display-5 text-warning"></i>
+                    <h5>Hair Styling</h5>
+                    <p>Modern and stylish hair designs.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card text-center h-100 shadow-sm">
+                <div class="card-body">
+                    <i class="bi bi-brush display-5 text-danger"></i>
+                    <h5>Makeup</h5>
+                    <p>Professional makeup services.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card text-center h-100 shadow-sm">
+                <div class="card-body">
+                    <i class="bi bi-heart display-5 text-primary"></i>
+                    <h5>Facial</h5>
+                    <p>Relaxing facial and skincare services.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="servicedetails" class="container py-5">
+    <div class="text-center">
+        <h2 class="fw-bold">Services Details</h2>
+        <p class="text-secondary">
+            Haircut, hair styling, hair coloring, hair spa,
+            facial, manicure, pedicure, makeup and bridal makeup.
+        </p>
+    </div>
+</section>
+
+
+<section id="stylists" class="container py-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">Our Stylists</h2>
+        <p class="text-secondary">Meet our professional salon stylists.</p>
+    </div>
+
+    <div class="row g-3">
+
+        <div class="col-lg-4">
+            <div class="card text-center shadow-sm h-100">
+                <div class="card-body">
+                    <i class="bi bi-person-circle display-4 text-primary"></i>
+                    <h4>Harsha</h4>
+                    <p>Hair Stylist</p>
+                    <p>5 Years Experience</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card text-center shadow-sm h-100">
+                <div class="card-body">
+                    <i class="bi bi-person-circle display-4 text-success"></i>
+                    <h4>Rajesh</h4>
+                    <p>Hair & Makeup Artist</p>
+                    <p>4 Years Experience</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card text-center shadow-sm h-100">
+                <div class="card-body">
+                    <i class="bi bi-person-circle display-4 text-warning"></i>
+                    <h4>Ramu</h4>
+                    <p>Beauty Specialist</p>
+                    <p>3 Years Experience</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="pricing" class="container py-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">Pricing</h2>
+        <p class="text-secondary">Affordable salon services.</p>
+    </div>
+
+    <div class="row g-3">
+
+        <div class="col-lg-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h4>Basic</h4>
+                    <h3 class="text-success">₹299</h3>
+                    <p>Haircut</p>
+                    <p>Hair Styling</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h4>Premium</h4>
+                    <h3 class="text-warning">₹699</h3>
+                    <p>Haircut</p>
+                    <p>Hair Spa</p>
+                    <p>Facial</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h4>Bridal</h4>
+                    <h3 class="text-danger">₹2999</h3>
+                    <p>Bridal Makeup</p>
+                    <p>Hair Styling</p>
+                    <p>Facial</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="gallery" class="container py-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">Gallery</h2>
+        <p class="text-secondary">Explore our salon work.</p>
+    </div>
+
+    <div class="row g-3">
+
+        <div class="col-lg-4">
+            <img src="https://c8.alamy.com/comp/KDHE74/cheerful-man-hairdresser-cutting-hair-of-smiling-boy-in-beauty-salon-KDHE74.jpg"
+                 class="img-fluid rounded">
+        </div>
+
+        <div class="col-lg-4">
+            <img src="https://wallpapers.com/images/hd/salon-pictures-aea9l8t3mm9hx1po.jpg"
+                 class="img-fluid rounded">
+        </div>
+
+        <div class="col-lg-4">
+            <img src="https://i.pinimg.com/originals/48/9e/3a/489e3a9554d378d489e6e47b7363207c.jpg"
+                 class="img-fluid rounded">
+        </div>
+
+    </div>
+</section>
+
+
+<section id="offers" class="container py-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">Special Offers</h2>
+        <p class="text-secondary">Enjoy our latest salon offers.</p>
+    </div>
+
+    <div class="row g-3">
+
+        <div class="col-lg-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h4>Haircut Offer</h4>
+                    <h3 class="text-success">20% OFF</h3>
+                    <p>On selected haircut services.</p>
+                    <button class="btn btn-success"
+                            data-bs-target="#offer"
+                            data-bs-toggle="modal">
+                        Get Offer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h4>Hair Spa Offer</h4>
+                    <h3 class="text-warning">15% OFF</h3>
+                    <p>Special discount on hair spa.</p>
+                    <button class="btn btn-warning"
+                            data-bs-target="#offer"
+                            data-bs-toggle="modal">
+                        Get Offer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h4>Bridal Offer</h4>
+                    <h3 class="text-danger">25% OFF</h3>
+                    <p>Special bridal makeup package.</p>
+                    <button class="btn btn-danger"
+                            data-bs-target="#offer"
+                            data-bs-toggle="modal">
+                        Get Offer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="testimonials" class="container py-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">Testimonials</h2>
+        <p class="text-secondary">What our customers say.</p>
+    </div>
+
+    <div class="row g-3">
+
+        <div class="col-lg-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h5>Rajesh</h5>
+                    <p class="text-warning">★★★★★</p>
+                    <p>Excellent service and friendly staff.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h5>Harsha</h5>
+                    <p class="text-warning">★★★★☆</p>
+                    <p>Good infrastructure and professional service.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h5>Ramu</h5>
+                    <p class="text-warning">★★★★★</p>
+                    <p>Clean salon with excellent work.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="contact" class="container py-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">Contact Us</h2>
+        <p class="text-secondary">Get in touch with Harsha Salon Shop.</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h4>Salon Information</h4>
+                    <p><i class="bi bi-geo-alt"></i> Hyderabad, Telangana</p>
+                    <p><i class="bi bi-telephone"></i> +91 9876543210</p>
+                    <p><i class="bi bi-envelope"></i> harshasalon@gmail.com</p>
+                    <p><i class="bi bi-clock"></i> 9:00 AM - 9:00 PM</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h4>Send Enquiry</h4>
+
+                    <input type="text"
+                           class="form-control mb-3"
+                           placeholder="Enter your name">
+
+                    <input type="email"
+                           class="form-control mb-3"
+                           placeholder="Enter your email">
+
+                    <textarea class="form-control mb-3"
+                              placeholder="Enter your message"></textarea>
+
+                    <button class="btn btn-primary">
+                        Send Message
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer class="bg-dark text-white py-4 mt-5">
+
+    <div class="container text-center">
+
+        <p class="mb-0">
+            &copy; 2026 Harsha Salon Shop.
+            All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+</body>
+</html>
